@@ -61,7 +61,7 @@ public class ModItems {
     public static final RegistryObject<Item> EnvisionLocation = ITEMS.register("envisionlocation",
             ()-> new Item(new Item.Properties()));
     public static final RegistryObject<Item> EnvisionHealth = ITEMS.register("envisionhealth",
-            ()-> new Item(new Item.Properties()));
+            ()-> new Item(new Item.Properties())); //All these register the mod items as items in minecraft
 
 
 

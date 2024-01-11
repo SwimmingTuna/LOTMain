@@ -33,7 +33,7 @@ public class SpiritualityC2SPacket {
                 spirituality.subSpirituality(1);
                 player.sendSystemMessage(Component.literal("Current Spirituality is " + spirituality.getSpirituality())
                         .withStyle(ChatFormatting.BLUE));
-                ModMessages.sendToPlayer(new SpiritualityDataS2CPacket(spirituality.getSpirituality()), player);
+                ModMessages.sendToPlayer(new SpiritualityDataS2CPacket(spirituality.getSpirituality()), player); //the enqueue work part above calls all this to happen when enqueue work is used., everything her is self explanatory
             });
         });
         return true;

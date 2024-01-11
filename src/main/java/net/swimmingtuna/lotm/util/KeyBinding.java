@@ -10,6 +10,6 @@ public class KeyBinding {
         public static final String KEY_SPIRITUALITY_CHECK = "key.lotm.spirituality_check";
 
         public static final KeyMapping SPIRITUALITY_KEY = new KeyMapping(KEY_SPIRITUALITY_CHECK, KeyConflictContext.IN_GAME,
-                InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_O, KEY_CATEGORY_TUTORIAL);
+                InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_O, KEY_CATEGORY_TUTORIAL); //defines what the key is and what key is used for something to happen which is defined in above files
     }
 

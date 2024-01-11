@@ -25,7 +25,7 @@ public class SpiritualityDataS2CPacket {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
             ClientSpiritualityData.set(spirituality);
-        });
+        }); //to be honest, i got no clue i just followed da tutorial
         return true;
     }
 }

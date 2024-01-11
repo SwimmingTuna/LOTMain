@@ -18,15 +18,15 @@ public class ReachChangeEvent {
 
     public static void checkEntityTooFar(PlayerInteractEvent event, Entity pEntity, Player pPlayer, InteractionHand pUsedHand) {
         if(pUsedHand(pPlayer)) {
-            UUID uuidforOppositeHand = BeyonderEntityReach;
-            AttributeInstance attackRange = pPlayer.getAttribute(ForgeMod.ENTITY_REACH.get());
-            if (attackRange != null) {
-                AttributeModifier beyonderModifier = attackRange.getModifier(BeyonderEntityReach);
-                if (beyonderModifier != null) {
-                    attackRange.removeModifier(beyonderModifier.getId());
-                    double range = pPlayer.getAttributeValue(ForgeMod.ENTITY_REACH.get());
-                    double trueReach = range == 0 ? 0 : range + (pPlayer.isCreative() ? 3 : 0);
-                    attackRange.addTransientModifier(beyonderModifier);
+            UUID uuidforOppositeHand = BeyonderEntityReach; //UUID which is able to be used in other files.
+            AttributeInstance attackRange = pPlayer.getAttribute(ForgeMod.ENTITY_REACH.get()); //grabs reach attribute
+            if (attackRange != null) { //if player is able to hit or interact with something from range
+                AttributeModifier beyonderModifier = attackRange.getModifier(BeyonderEntityReach); // calls BeyonderEntityReach and sets it to be able to change attack range and calls it beyonderModifier when its used for that
+                if (beyonderModifier != null) { //if beyonderModifier is active
+                    attackRange.removeModifier(beyonderModifier.getId()); //tbh idk
+                    double range = pPlayer.getAttributeValue(ForgeMod.ENTITY_REACH.get()); //gets the default entity range
+                    double trueReach = range == 0 ? 0 : range + (pPlayer.isCreative() ? 3 : 0); //defines the default player range
+                    attackRange.addTransientModifier(beyonderModifier); //when beyonderModifier is called, able to write stuff to be able to change the range which is shown later
 
                 }
             }

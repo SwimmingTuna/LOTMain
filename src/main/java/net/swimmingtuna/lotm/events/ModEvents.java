@@ -24,7 +24,7 @@ public class ModEvents {@SubscribeEvent
 public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
     if(event.getObject() instanceof Player) {
         if(!event.getObject().getCapability(PlayerSpiritualityProvider.PLAYER_SPIRITUALITY).isPresent()) {
-            event.addCapability(new ResourceLocation(LOTM.MOD_ID, "properties"), new PlayerSpiritualityProvider());
+            event.addCapability(new ResourceLocation(LOTM.MOD_ID, "properties"), new PlayerSpiritualityProvider()); //adds spirituailty to the player
         }
     }
 }
@@ -34,7 +34,7 @@ public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> ev
         if(event.isWasDeath()) {
             event.getOriginal().getCapability(PlayerSpiritualityProvider.PLAYER_SPIRITUALITY).ifPresent(oldStore -> {
                 event.getOriginal().getCapability(PlayerSpiritualityProvider.PLAYER_SPIRITUALITY).ifPresent(newStore -> {
-                    newStore.copyFrom(oldStore);
+                    newStore.copyFrom(oldStore); //on death, saves your spirituality when you died and links it to when you come back
                 });
             });
         }
@@ -42,7 +42,7 @@ public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> ev
 
     @SubscribeEvent
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
-        event.register(PlayerSpirituality.class);
+        event.register(PlayerSpirituality.class); //registers spirituality as well
     }
 
     @SubscribeEvent
@@ -51,7 +51,7 @@ public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> ev
             event.player.getCapability(PlayerSpiritualityProvider.PLAYER_SPIRITUALITY).ifPresent(spirituality -> {
                 if(spirituality.getSpirituality() > 0 && event.player.getRandom().nextFloat() < 0.005f) { // Once Every 10 Seconds on Avg
                     spirituality.addSpirituality(1);
-                    ModMessages.sendToPlayer(new SpiritualityDataS2CPacket(spirituality.getSpirituality()),((ServerPlayer) event.player));
+                    ModMessages.sendToPlayer(new SpiritualityDataS2CPacket(spirituality.getSpirituality()),((ServerPlayer) event.player)); //Every 10 seconds, add a spirituality to the player
                 }
             });
         }
@@ -63,7 +63,7 @@ public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> ev
         if(!event.getLevel().isClientSide()) {
             if(event.getEntity() instanceof ServerPlayer player) {
                 player.getCapability(PlayerSpiritualityProvider.PLAYER_SPIRITUALITY).ifPresent(spirituality -> {
-                    ModMessages.sendToPlayer(new SpiritualityDataS2CPacket(spirituality.getSpirituality()), player);
+                    ModMessages.sendToPlayer(new SpiritualityDataS2CPacket(spirituality.getSpirituality()), player); //sets a spirituality to the first time the player joins the world.
                 });
             }
         }

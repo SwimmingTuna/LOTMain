@@ -44,5 +44,5 @@ public class PlayerSpiritualityProvider implements ICapabilityProvider, INBTSeri
     @Override
     public void deserializeNBT(CompoundTag nbt) {
         createPlayerSpirituality().loadNBTData(nbt);
-    }
+    } //no clue lmao
 }
