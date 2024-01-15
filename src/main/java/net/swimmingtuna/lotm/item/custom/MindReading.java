@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -18,12 +19,15 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.swimmingtuna.lotm.client.ClientSpiritualityData;
 import net.swimmingtuna.lotm.events.ReachChangeUUIDs;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.OptionalInt;
 
 public class MindReading extends Item implements ReachChangeUUIDs {
+
 
     private final LazyOptional<Multimap<Attribute, AttributeModifier>> lazyAttributeMap = LazyOptional.of(() -> createAttributeMap()); //LazyOptional in this instance basically makes it so that the reach change is only in effect when something happens
 
@@ -55,6 +59,9 @@ public class MindReading extends Item implements ReachChangeUUIDs {
     public InteractionResult interactLivingEntity(ItemStack pStack, Player pPlayer, LivingEntity pInteractionTarget, InteractionHand pUsed) { //defines all the variables which will be used below
         if (!pInteractionTarget.level().isClientSide) return InteractionResult.SUCCESS; //if pInteractionTarget, which is a LivingEntity, not a player and is NOT clientside, so server side, say that everything below can happen
         pPlayer.sendSystemMessage(Component.literal("Cannot use Mind Reading on a non-player entity")); //send a system message in the chat that says that message
+
+
+
         return InteractionResult.PASS; //say that everything here is completed
 
     }
