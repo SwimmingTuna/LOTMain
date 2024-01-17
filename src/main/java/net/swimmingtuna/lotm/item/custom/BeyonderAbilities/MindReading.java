@@ -1,11 +1,10 @@
-package net.swimmingtuna.lotm.item.custom;
+package net.swimmingtuna.lotm.item.custom.BeyonderAbilities;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -17,14 +16,10 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.swimmingtuna.lotm.client.ClientSpiritualityData;
 import net.swimmingtuna.lotm.events.ReachChangeUUIDs;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.OptionalInt;
 
 public class MindReading extends Item implements ReachChangeUUIDs {
 

@@ -4,10 +4,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
@@ -15,22 +17,23 @@ import net.minecraftforge.fml.common.Mod;
 import net.swimmingtuna.lotm.LOTM;
 import net.swimmingtuna.lotm.beyonder.Spectator.Spectator_9.Spectator9Health;
 import net.swimmingtuna.lotm.beyonder.Spectator.Spectator_9.Spectator9HealthProvider;
+import net.swimmingtuna.lotm.item.custom.BeyonderPotions.Spectator9Potion;
 import net.swimmingtuna.lotm.networking.ModMessages;
 import net.swimmingtuna.lotm.networking.packet.SpiritualityDataS2CPacket;
 import net.swimmingtuna.lotm.spirituality.PlayerSpirituality;
 import net.swimmingtuna.lotm.spirituality.PlayerSpiritualityProvider;
+import org.jetbrains.annotations.NotNull;
 
 @Mod.EventBusSubscriber(modid = LOTM.MOD_ID)
-public class ModEvents {@SubscribeEvent
-public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
+public class ModEvents {
+    @SubscribeEvent
+
+    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event, LivingEntityUseItemEvent.Finish event2, Player pPlayer) {
     if(event.getObject() instanceof Player) {
         if(!event.getObject().getCapability(PlayerSpiritualityProvider.PLAYER_SPIRITUALITY).isPresent()) {
             event.addCapability(new ResourceLocation(LOTM.MOD_ID, "properties"), new PlayerSpiritualityProvider()); //adds spirituailty to the player
         }
-    if(!event.getObject().getCapability(Spectator9HealthProvider.SPECTATOR9HEALTH).isPresent()) {
-        event.addCapability(new ResourceLocation(LOTM.MOD_ID, "beyonderhealth"), new Spectator9HealthProvider());
-    }}
-
+    }
 }
 
     @SubscribeEvent

@@ -24,6 +24,9 @@
   "item.lotm.envisionkingdom": "Envision Kingdom",
   "item.lotm.envisionlocation": "Envision Location",
   "item.lotm.envisionhealth": "Envision Health",
+
   "key.category.lotm.mystery": "LOTM",
-  "key.lotm.spirituality_check": "Spirituality"
+  "key.lotm.spirituality_check": "Spirituality",
+
+  "item.minecraft.potion.effect.spectator_9_potion": "Spectator 9 Potion"
 }

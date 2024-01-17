@@ -3,6 +3,7 @@ package net.swimmingtuna.lotm;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -11,8 +12,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.swimmingtuna.lotm.item.ModItems;
+import net.swimmingtuna.lotm.item.ModPotions;
 import net.swimmingtuna.lotm.networking.ModMessages;
 import org.slf4j.Logger;
+
+import javax.swing.text.html.parser.Entity;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(LOTM.MOD_ID)
@@ -27,9 +31,11 @@ public class LOTM
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModPotions.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -37,6 +43,8 @@ public class LOTM
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
     }
+
+
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         ModMessages.register();

@@ -1,12 +1,13 @@
 package net.swimmingtuna.lotm.item;
 
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.alchemy.Potion;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.swimmingtuna.lotm.LOTM;
-import net.swimmingtuna.lotm.item.custom.MindReading;
+import net.swimmingtuna.lotm.item.custom.BeyonderAbilities.MindReading;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -61,7 +62,8 @@ public class ModItems {
     public static final RegistryObject<Item> EnvisionLocation = ITEMS.register("envisionlocation",
             ()-> new Item(new Item.Properties()));
     public static final RegistryObject<Item> EnvisionHealth = ITEMS.register("envisionhealth",
-            ()-> new Item(new Item.Properties())); //All these register the mod items as items in minecraft
+            ()-> new Item(new Item.Properties()));
+
 
 
 
