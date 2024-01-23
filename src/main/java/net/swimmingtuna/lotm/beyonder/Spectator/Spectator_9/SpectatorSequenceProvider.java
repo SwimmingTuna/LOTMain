@@ -2,37 +2,31 @@ package net.swimmingtuna.lotm.beyonder.Spectator.Spectator_9;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.CapabilityToken;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
-import net.swimmingtuna.lotm.item.custom.BeyonderPotions.Spectator9Potion;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class Spectator9HealthProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-    public static Capability<Spectator9Health> SPECTATOR9HEALTH = CapabilityManager.get(new CapabilityToken<Spectator9Health>() {});
+public class SpectatorSequenceProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
+    public static Capability<SpectatorSequence> SPECTATORSEQUENCE = CapabilityManager.get(new CapabilityToken<SpectatorSequence>() {});
 
-    private Spectator9Health s9health = null;
-    private final LazyOptional<Spectator9Health> optional = LazyOptional.of(this::createSpectator9Health);
+    private SpectatorSequence s9health = null;
+    private final LazyOptional<SpectatorSequence> optional = LazyOptional.of(this::createSpectatorSequence);
 
-    private Spectator9Health createSpectator9Health() {
+    private SpectatorSequence createSpectatorSequence() {
         if (this.s9health == null) {
-            this.s9health = new Spectator9Health();
+            this.s9health = new SpectatorSequence();
         }
         return this.s9health;
     }
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if (cap == SPECTATOR9HEALTH) {
+        if (cap == SPECTATORSEQUENCE) {
             return optional.cast();
         }
         return LazyOptional.empty();
@@ -41,12 +35,12 @@ public class Spectator9HealthProvider implements ICapabilityProvider, INBTSerial
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag nbt = new CompoundTag();
-        createSpectator9Health().saveNBTData(nbt);
+        createSpectatorSequence().saveNBTData(nbt);
         return nbt;
     }
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-createSpectator9Health().loadNBTData(nbt);
+createSpectatorSequence().loadNBTData(nbt);
     }
 }
