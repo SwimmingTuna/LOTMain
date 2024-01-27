@@ -1,4 +1,4 @@
-package net.swimmingtuna.lotm.beyonder.Spectator.Spectator_9;
+package net.swimmingtuna.lotm.beyonder;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -8,6 +8,7 @@ import net.minecraftforge.common.capabilities.CapabilityToken;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
+import net.swimmingtuna.lotm.beyonder.SpectatorSequence;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,6 +24,7 @@ public class SpectatorSequenceProvider implements ICapabilityProvider, INBTSeria
         }
         return this.s9health;
     }
+
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {

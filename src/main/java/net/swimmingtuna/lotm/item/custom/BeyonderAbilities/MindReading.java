@@ -12,16 +12,10 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.util.LazyOptional;
-import net.swimmingtuna.lotm.beyonder.Spectator.Spectator_9.SpectatorSequence;
-import net.swimmingtuna.lotm.beyonder.Spectator.Spectator_9.SpectatorSequenceProvider;
+import net.swimmingtuna.lotm.beyonder.SpectatorSequenceProvider;
 import net.swimmingtuna.lotm.events.ReachChangeUUIDs;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 public class MindReading extends Item implements ReachChangeUUIDs {
 
@@ -53,20 +47,12 @@ public class MindReading extends Item implements ReachChangeUUIDs {
         return mainHandStack.getItem() instanceof MindReading;
     }
 
-    public InteractionResult interactLivingEntity(ItemStack pStack, Player pPlayer, LivingEntity pInteractionTarget, InteractionHand pUsed) { //defines all the variables which will be used below
-        if (!pInteractionTarget.level().isClientSide)
+    public InteractionResult interactLivingEntity(ItemStack pStack, Player pPlayer, LivingEntity pInteractionTarget, InteractionHand pUsedHand) { //defines all the variables which will be used below
             pPlayer.getCapability(SpectatorSequenceProvider.SPECTATORSEQUENCE).ifPresent(spectatorSequence ->  {
-                if (spectatorSequence.getSpectatorSequence() > 1)
+                if (spectatorSequence.getSpectatorSequence() >= 1 && !pInteractionTarget.level().isClientSide)
                     pPlayer.sendSystemMessage(Component.literal("Cannot use Mind Reading on a non-player entity"));});
                     return InteractionResult.PASS;
 
-    }
-
-    @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        pTooltipComponents.clear();
-        pTooltipComponents.add(Component.literal("Display Player Inventories"));
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }
 

@@ -3,7 +3,6 @@ package net.swimmingtuna.lotm;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -12,11 +11,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.swimmingtuna.lotm.item.ModItems;
-import net.swimmingtuna.lotm.item.ModPotions;
 import net.swimmingtuna.lotm.networking.ModMessages;
+import net.swimmingtuna.lotm.util.effect.ModEffects;
 import org.slf4j.Logger;
-
-import javax.swing.text.html.parser.Entity;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(LOTM.MOD_ID)
@@ -31,7 +28,7 @@ public class LOTM
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
-        ModPotions.register(modEventBus);
+        ModEffects.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -79,6 +76,19 @@ public class LOTM
                 event.accept(ModItems.EnvisionKingdom);
                 event.accept(ModItems.EnvisionLocation);
                 event.accept(ModItems.EnvisionHealth);
+                event.accept(ModItems.Spectator9Potion);
+                event.accept(ModItems.Spectator8Potion);
+                event.accept(ModItems.Spectator7Potion);
+                event.accept(ModItems.Spectator6Potion);
+                event.accept(ModItems.Spectator5Potion);
+                event.accept(ModItems.Spectator4Potion);
+                event.accept(ModItems.Spectator3Potion);
+                event.accept(ModItems.Spectator2Potion);
+                event.accept(ModItems.Spectator1Potion);
+                event.accept(ModItems.Spectator0Potion);
+                event.accept(ModItems.BeyonderResetPotion);
+
+
 
 
 

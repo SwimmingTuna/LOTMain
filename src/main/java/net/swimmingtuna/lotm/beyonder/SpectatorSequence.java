@@ -1,7 +1,6 @@
-package net.swimmingtuna.lotm.beyonder.Spectator.Spectator_9;
+package net.swimmingtuna.lotm.beyonder;
 
 import net.minecraft.nbt.CompoundTag;
-import net.swimmingtuna.lotm.spirituality.PlayerSpirituality;
 
 public class SpectatorSequence {
     private int spectatorSequence;

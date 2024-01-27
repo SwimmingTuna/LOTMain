@@ -17,23 +17,23 @@ import net.swimmingtuna.lotm.util.effect.ModEffects;
 
 import java.util.List;
 
-public class Spectator9Potion extends Item{
-    public Spectator9Potion(Properties pProperties) {
+public class Spectator5Potion extends Item{
+    public Spectator5Potion(Properties pProperties) {
         super(pProperties);
     }
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level,Player pPlayer,InteractionHand hand) {
-        var effect = new MobEffectInstance(ModEffects.ADVANCEMENT9.get(),1,1);
+        var effect = new MobEffectInstance(ModEffects.ADVANCEMENT5.get(),1,1);
         effect.setCurativeItems(List.of());
         ItemStack itemStack = pPlayer.getItemInHand(hand);
         pPlayer.getCapability(SpectatorSequenceProvider.SPECTATORSEQUENCE).ifPresent(spectatorSequence ->  {
-            if (spectatorSequence.getSpectatorSequence() == 0 && !level.isClientSide()){
+            if (spectatorSequence.getSpectatorSequence() == 4 && !level.isClientSide()){
                 spectatorSequence.addSpectatorSequence(1);
                 level.playSound(null,pPlayer.getOnPos(), SoundEvents.PORTAL_AMBIENT, SoundSource.PLAYERS,0.5f,level.random.nextFloat() * 0.1F + 0.9F);
-                pPlayer.sendSystemMessage(Component.literal("You have advanced to a Spectator").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.BOLD));
-                pPlayer.addEffect(new MobEffectInstance(ModEffects.ADVANCEMENT9.get(),1,1));
-                pPlayer.getAttribute(Attributes.MAX_HEALTH).setBaseValue(22.0);
+                pPlayer.sendSystemMessage(Component.literal("You have advanced to a Dreamwalker").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.BOLD));
+                pPlayer.addEffect(new MobEffectInstance(ModEffects.ADVANCEMENT5.get(),1,1));
+                pPlayer.getAttribute(Attributes.MAX_HEALTH).setBaseValue(66.0);
                 if (!pPlayer.getAbilities().instabuild) {
                     itemStack.shrink(1);}};});
         return super.use(level,pPlayer,hand);}}
