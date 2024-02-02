@@ -12,6 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.swimmingtuna.lotm.item.ModItems;
 import net.swimmingtuna.lotm.networking.ModMessages;
+import net.swimmingtuna.lotm.spirituality.SpiritualityAttribute.ModAttributeRegistry;
 import net.swimmingtuna.lotm.util.effect.ModEffects;
 import org.slf4j.Logger;
 
@@ -29,6 +30,7 @@ public class LOTM
 
         ModItems.register(modEventBus);
         ModEffects.register(modEventBus);
+        ModAttributeRegistry.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

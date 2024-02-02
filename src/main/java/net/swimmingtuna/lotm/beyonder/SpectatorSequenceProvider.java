@@ -8,21 +8,20 @@ import net.minecraftforge.common.capabilities.CapabilityToken;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
-import net.swimmingtuna.lotm.beyonder.SpectatorSequence;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class SpectatorSequenceProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
     public static Capability<SpectatorSequence> SPECTATORSEQUENCE = CapabilityManager.get(new CapabilityToken<SpectatorSequence>() {});
 
-    private SpectatorSequence s9health = null;
+    private SpectatorSequence spectatorSequence = null;
     private final LazyOptional<SpectatorSequence> optional = LazyOptional.of(this::createSpectatorSequence);
 
     private SpectatorSequence createSpectatorSequence() {
-        if (this.s9health == null) {
-            this.s9health = new SpectatorSequence();
+        if (this.spectatorSequence == null) {
+            this.spectatorSequence = new SpectatorSequence();
         }
-        return this.s9health;
+        return this.spectatorSequence;
     }
 
 

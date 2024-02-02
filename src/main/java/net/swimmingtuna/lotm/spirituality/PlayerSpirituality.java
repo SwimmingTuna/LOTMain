@@ -4,8 +4,8 @@ import net.minecraft.nbt.CompoundTag;
 
 public class PlayerSpirituality {
     private int spirituality;
-    public final int MIN_SPIRITUALITY = 0; //sets Minimum Spirituality
-    public final int MAX_SPIRITUALITY = 10; //sets Maximum Spirituality
+    public int MIN_SPIRITUALITY = 0; //sets Minimum Spirituality
+    public static int MAX_SPIRITUALITY = 10; //sets Maximum Spirituality
 
     public int getSpirituality() {
         return spirituality;

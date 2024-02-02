@@ -1,5 +1,6 @@
 package net.swimmingtuna.lotm.item;
 
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -64,25 +65,25 @@ public class ModItems {
     public static final RegistryObject<Item> EnvisionHealth = ITEMS.register("envisionhealth",
             ()-> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> Spectator9Potion = ITEMS.register("spectator9potion",
-            ()-> new Spectator9Potion(new Item.Properties().stacksTo(1)));
+            ()-> new Spectator9Potion(new Item.Properties().stacksTo(1), new AttributeModifier("mana", 25, AttributeModifier.Operation.ADDITION)));
     public static final RegistryObject<Item> Spectator8Potion = ITEMS.register("spectator8potion",
-            ()-> new Spectator8Potion(new Item.Properties().stacksTo(1)));
+            ()-> new Spectator8Potion(new Item.Properties().stacksTo(1), new AttributeModifier("mana", 50, AttributeModifier.Operation.ADDITION)));
     public static final RegistryObject<Item> Spectator7Potion = ITEMS.register("spectator7potion",
-            ()-> new Spectator7Potion(new Item.Properties().stacksTo(1)));
+            ()-> new Spectator7Potion(new Item.Properties().stacksTo(1), new AttributeModifier("mana", 125, AttributeModifier.Operation.ADDITION)));
     public static final RegistryObject<Item> Spectator6Potion = ITEMS.register("spectator6potion",
-            ()-> new Spectator6Potion(new Item.Properties().stacksTo(1)));
+            ()-> new Spectator6Potion(new Item.Properties().stacksTo(1), new AttributeModifier("mana", 160, AttributeModifier.Operation.ADDITION)));
     public static final RegistryObject<Item> Spectator5Potion = ITEMS.register("spectator5potion",
-            ()-> new Spectator5Potion(new Item.Properties().stacksTo(1)));
+            ()-> new Spectator5Potion(new Item.Properties().stacksTo(1), new AttributeModifier("mana", 240, AttributeModifier.Operation.ADDITION)));
     public static final RegistryObject<Item> Spectator4Potion = ITEMS.register("spectator4potion",
-            ()-> new Spectator4Potion(new Item.Properties().stacksTo(1)));
+            ()-> new Spectator4Potion(new Item.Properties().stacksTo(1), new AttributeModifier("mana", 500, AttributeModifier.Operation.ADDITION)));
     public static final RegistryObject<Item> Spectator3Potion = ITEMS.register("spectator3potion",
-            ()-> new Spectator3Potion(new Item.Properties().stacksTo(1)));
+            ()-> new Spectator3Potion(new Item.Properties().stacksTo(1), new AttributeModifier("mana", 1000, AttributeModifier.Operation.ADDITION)));
     public static final RegistryObject<Item> Spectator2Potion = ITEMS.register("spectator2potion",
-            ()-> new Spectator2Potion(new Item.Properties().stacksTo(1)));
+            ()-> new Spectator2Potion(new Item.Properties().stacksTo(1), new AttributeModifier("mana", 1750, AttributeModifier.Operation.ADDITION)));
     public static final RegistryObject<Item> Spectator1Potion = ITEMS.register("spectator1potion",
-            ()-> new Spectator1Potion(new Item.Properties().stacksTo(1)));
+            ()-> new Spectator1Potion(new Item.Properties().stacksTo(1), new AttributeModifier("mana", 3000, AttributeModifier.Operation.ADDITION)));
     public static final RegistryObject<Item> Spectator0Potion = ITEMS.register("spectator0potion",
-            ()-> new Spectator0Potion(new Item.Properties().stacksTo(1)));
+            ()-> new Spectator0Potion(new Item.Properties().stacksTo(1), new AttributeModifier("mana", 5000, AttributeModifier.Operation.ADDITION)));
     public static final RegistryObject<Item> BeyonderResetPotion = ITEMS.register("beyonderresetpotion",
             ()-> new BeyonderResetPotion(new Item.Properties().stacksTo(1)));
 

@@ -19,6 +19,7 @@ import net.swimmingtuna.lotm.networking.ModMessages;
 import net.swimmingtuna.lotm.networking.packet.SpiritualityDataS2CPacket;
 import net.swimmingtuna.lotm.spirituality.PlayerSpirituality;
 import net.swimmingtuna.lotm.spirituality.PlayerSpiritualityProvider;
+import net.swimmingtuna.lotm.spirituality.SpiritualityAttribute.ModGameLogic;
 
 @Mod.EventBusSubscriber(modid = LOTM.MOD_ID)
 public class ModEvents {
@@ -34,6 +35,7 @@ public class ModEvents {
         }
     }
 }
+
 
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
@@ -66,6 +68,8 @@ public class ModEvents {
                     ModMessages.sendToPlayer(new SpiritualityDataS2CPacket(spirituality.getSpirituality()),((ServerPlayer) event.player)); //Every 10 seconds, add a spirituality to the player
                 }
             });
+            if (event.player.getRandom().nextFloat() < 0.005f)
+                ModGameLogic.addSpirituality(event.player);
         }
 
     }

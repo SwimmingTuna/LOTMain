@@ -48,5 +48,7 @@
   "effects.lotm.advancement3": "Advancement 3",
   "effects.lotm.advancement2": "Advancement 2",
   "effects.lotm.advancement1": "Advancement 1",
-  "effects.lotm.advancement0": "Advancement 0"
+  "effects.lotm.advancement0": "Advancement 0",
+
+  "attribute.lotm.spirituality": "Spirituality"
 }

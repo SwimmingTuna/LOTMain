@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -18,7 +19,7 @@ import net.swimmingtuna.lotm.util.effect.ModEffects;
 import java.util.List;
 
 public class Spectator2Potion extends Item{
-    public Spectator2Potion(Properties pProperties) {
+    public Spectator2Potion(Properties pProperties, AttributeModifier mana) {
         super(pProperties);
     }
 
